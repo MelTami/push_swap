@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/04 19:32:35 by mvavasso          #+#    #+#              #
-#    Updated: 2022/08/09 22:14:37 by mvavasso         ###   ########.fr        #
+#    Updated: 2023/01/19 21:47:33 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC			= cc
 CFLAGS		= -Wall -Werror -Wextra
 
 RM			= rm -rf
-AR			= ar rc
+AR			= ar rcs
 
 PATH_SRCS	= ./sources/
 PATH_OBJS	= ./objects/
@@ -63,21 +63,20 @@ SRCS		= $(addprefix $(PATH_SRCS), \
 				ft_convertu.c \
 				ft_convertint.c \
 				ft_convertptr.c \
-				ft_printf.c
-				)
+				ft_printf.c)
 			
 HEADER		= libft.h
 OBJS 		= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 
-all:	$(NAME)
+all:	$(NAME) clean
 
 $(NAME): $(OBJS)
 	@ $(AR) $(NAME) $(OBJS)
+	@ echo -e '\033[0;32m[SUCCESS]\033[0m Compilation done!'
 
 $(PATH_OBJS)%.o: $(PATH_SRCS)%.c
 	@ mkdir -p $(PATH_OBJS)
-	@ $(CC) $(CFLAG) -c $< -o $@
-	@ echo -e '\033[0;32m[SUCCESS]\033[0m Compilation done!'
+	@ $(CC) $(CFLAG) -I $(HEADER) -c $< -o $@
 	
 clean:
 	@ $(RM) $(PATH_OBJS)
@@ -90,21 +89,3 @@ fclean:	clean
 re:		fclean all
 
 .PHONY: all clean fclean re
-
-# all:	$(NAME)
-
-# $(NAME): $(OBJS)
-# 	$(AR) $(NAME) $(OBJS)
-
-# $(OBJS): $(SRCS)
-# 	$(CC) $(CFLAG) -c $(SRCS)
-
-# clean:
-# 		$(RM) $(OBJS)
-
-# fclean:	clean
-# 		$(RM) $(NAME)
-
-# re:		fclean all
-
-# .PHONY: all clean fclean re		

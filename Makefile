@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/03 21:02:27 by mvavasso          #+#    #+#              #
-#    Updated: 2023/01/03 21:02:27 by mvavasso         ###   ########.fr        #
+#    Updated: 2023/01/19 21:54:53 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RM				= rm -rf
 PATH_INCLUDES	= ./includes/
 PATH_OBJS		= ./objects/
 PATH_SRCS		= ./sources/
-PATH_LIBFT		= ./Libft
+PATH_LIBFT		= ./libft
 
 SRCS			= $(addprefix $(PATH_SRCS), \
 					main.c \
@@ -28,7 +28,7 @@ LFLAGS			= -L $(PATH_LIBFT) -lft
 OBJS 			= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 INCLUDES		= -I $(PATH_INCLUDES)
 
-all:	$(NAME)
+all:	$(NAME) clean
 
 $(NAME): $(OBJS)
 	@ make -C $(PATH_LIBFT)
@@ -37,7 +37,7 @@ $(NAME): $(OBJS)
 
 $(PATH_OBJS)%.o: $(PATH_SRCS)%.c
 	@ mkdir -p $(PATH_OBJS)
-	@ clang $(CFLAGS) $(INCLUDES) -I mlx.h -O3 -c $< -o $@
+	@ clang $(CFLAGS) $(INCLUDES) -I -c $< -o $@
 	
 clean:
 	@ $(RM) $(PATH_OBJS)
