@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/04 19:32:35 by mvavasso          #+#    #+#              #
-#    Updated: 2023/01/19 21:47:33 by mvavasso         ###   ########.fr        #
+#    Updated: 2023/01/19 22:01:07 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ SRCS		= $(addprefix $(PATH_SRCS), \
 HEADER		= libft.h
 OBJS 		= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 
-all:	$(NAME) clean
+all:	$(NAME)
 
 $(NAME): $(OBJS)
 	@ $(AR) $(NAME) $(OBJS)

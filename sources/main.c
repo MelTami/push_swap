@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/03 21:10:41 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/01/19 21:54:06 by mvavasso         ###   ########.fr       */
+/*   Created: 2023/01/19 21:57:58 by mvavasso          #+#    #+#             */
+/*   Updated: 2023/01/26 16:56:16 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pushswap.h"
-#include <stdio.h>
+#include "../includes/push_swap.h"
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	if (argc <= 1)
-		return(0);
+		return (0);
 	argv = 0;
-	printf("Foi!\n");
+	write(1, "done\n", 5);
+	return (0);
 }
