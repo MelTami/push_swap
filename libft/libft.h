@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 22:19:57 by mvavasso          #+#    #+#             */
-/*   Updated: 2022/08/09 22:17:25 by mvavasso         ###   ########.fr       */
+/*   Updated: 2023/01/28 00:46:08 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ int		ft_converthex(int hex, char *s);
 int		ft_convertptr(void *ptr);
 int		ft_convertint(int nb);
 int		ft_convertu(unsigned int nb);
+long	ft_atol(const char *str);
 
 #endif

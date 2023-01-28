@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check.c                                         :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 18:01:55 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/01/28 00:51:21 by mvavasso         ###   ########.fr       */
+/*   Created: 2023/01/28 00:45:33 by mvavasso          #+#    #+#             */
+/*   Updated: 2023/01/28 00:45:53 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../libft.h"
 
-void	ft_check(char *argv)
+long	ft_atol(const char *str)
 {
-	int	i;
+	long long	res;
+	int			sign;
 
-	i = 0;
-	while (argv[i])
+	res = 0;
+	sign = 1;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (ft_isdigit(*str))
 	{
-		if (!ft_isdigit(argv[i]))
-			ft_error();
-		i++;
-	}			
+		res = res * 10 + *str - '0';
+		str++;
+	}
+	return ((long)res * sign);
 }
