@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfind.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 20:36:49 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/02/01 00:47:43 by mvavasso         ###   ########.fr       */
+/*   Created: 2023/02/01 14:19:11 by mvavasso          #+#    #+#             */
+/*   Updated: 2023/02/01 14:19:31 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-t_list	*ft_lstfind(t_list *list, void *data, int (*cmp)())
+t_list	*ft_lstnew(void *content)
 {
-	while (list)
-	{
-		if (cmp(list->content, data))
-			break ;
-		list = list->next;
-	}
-	return (list);
+	t_list	*node;
+
+	node = (t_list *) malloc (sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

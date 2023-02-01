@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/03 21:02:27 by mvavasso          #+#    #+#              #
-#    Updated: 2023/01/26 16:56:16 by mvavasso         ###   ########.fr        #
+#    Updated: 2023/02/01 14:21:03 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,10 @@ PATH_SRCS		= ./sources/
 PATH_LIBFT		= ./libft
 
 SRCS			= $(addprefix $(PATH_SRCS), \
-					main.c)
+					main.c \
+					ft_error.c \
+					ft_check.c \
+					stack.c)
 LFLAGS			= -L $(PATH_LIBFT) -lft
 OBJS 			= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 INCLUDES		= -I $(PATH_INCLUDES)

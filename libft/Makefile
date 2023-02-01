@@ -6,7 +6,7 @@
 #    By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/04 19:32:35 by mvavasso          #+#    #+#              #
-#    Updated: 2023/01/31 20:39:30 by mvavasso         ###   ########.fr        #
+#    Updated: 2023/02/01 14:20:48 by mvavasso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,8 @@ SRCS		= $(addprefix $(PATH_SRCS), \
 				ft_convertptr.c \
 				ft_printf.c \
 				ft_atol.c \
-				ft_lstfind.c)
+				ft_lstfind.c \
+				ft_lstnew.c)
 			
 HEADER		= libft.h
 OBJS 		= $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))

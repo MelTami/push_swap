@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfind.c                                       :+:      :+:    :+:   */
+/*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 20:36:49 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/02/01 00:47:43 by mvavasso         ###   ########.fr       */
+/*   Created: 2023/02/01 14:18:11 by mvavasso          #+#    #+#             */
+/*   Updated: 2023/02/01 14:18:32 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../includes/push_swap.h"
 
-t_list	*ft_lstfind(t_list *list, void *data, int (*cmp)())
+void	stack_push(t_stack *stack, void *content)
 {
-	while (list)
-	{
-		if (cmp(list->content, data))
-			break ;
-		list = list->next;
-	}
-	return (list);
+	t_list	*head;
+
+	head = ft_lstnew(content);
+	head->next = stack->head;
+	stack->head = head;
+	stack->size++;
 }

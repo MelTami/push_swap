@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 22:19:57 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/01/31 20:39:07 by mvavasso         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:20:35 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
@@ -63,5 +69,6 @@ int		ft_convertint(int nb);
 int		ft_convertu(unsigned int nb);
 long	ft_atol(const char *str);
 t_list	*ft_lstfind(t_list *list, void *data, int (*cmp)());
+t_list	*ft_lstnew(void *content);
 
 #endif
