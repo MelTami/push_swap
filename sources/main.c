@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 21:57:58 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/02/01 14:20:19 by mvavasso         ###   ########.fr       */
+/*   Updated: 2023/02/01 14:26:17 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ static int	check_stack(int argc, char *argv[], t_stack *stack)
 			ft_error();
 		content = (int *) malloc(sizeof(*content));
 		if (!content)
-			return(0);
+			return (0);
 		*content = (int)temp;
 		if (stack->head && ft_lstfind(stack->head, content, is_equal))
 			ft_error();
 		stack_push(stack, content);
 	}
-	return(1);
+	return (1);
 }
 
 int	main(int argc, char *argv[])
