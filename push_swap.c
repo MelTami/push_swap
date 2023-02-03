@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 21:57:58 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/02/03 18:12:49 by mvavasso         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:12:39 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,11 @@ int	main(int argc, char *argv[])
 	check_stack(argc - 1, &argv[1], &a);
 	if (!is_sorted(a.head))
 	{
-		if (a.size < 4)
+		if (a.size == 2)
+			sa(&a, &b);
+		else if (a.size < 4)
 			sort_small(&a, &b);
-		if (a.size < 6)
+		else if (a.size < 6)
 			sort_mid(&a, &b);
 		else
 			sort_big(&a, &b);
