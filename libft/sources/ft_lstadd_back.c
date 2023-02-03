@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 18:01:15 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/02/03 18:06:30 by mvavasso         ###   ########.fr       */
+/*   Created: 2023/02/03 17:46:10 by mvavasso          #+#    #+#             */
+/*   Updated: 2023/02/03 17:46:28 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../libft.h"
 
-void	pa(t_stack *a, t_stack *b)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (b->size)
-	{
-		ft_putendl_fd("pa", 1);
-		stack_push(a, stack_pop(b));
-	}
-}
-
-void	pb(t_stack *a, t_stack *b)
-{
-	if (a->size)
-	{
-		ft_putendl_fd("pb", 1);
-		stack_push(b, stack_pop(a));
-	}
+	if (!new)
+		return ;
+	if (*lst)
+		ft_lstlast(*lst)->next = new;
+	else
+		*lst = new;
 }

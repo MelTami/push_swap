@@ -6,7 +6,7 @@
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 22:19:57 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/02/01 14:20:35 by mvavasso         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:53:48 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,16 @@ int		ft_convertu(unsigned int nb);
 long	ft_atol(const char *str);
 t_list	*ft_lstfind(t_list *list, void *data, int (*cmp)());
 t_list	*ft_lstnew(void *content);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list	*ft_lstat(t_list *list, unsigned int n);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+t_list	*ft_lstdup_int(t_list *list);
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
+int		ft_lstsize(t_list *lst);
+void	ft_lstsort(t_list *list, int start, int end);
 
 #endif

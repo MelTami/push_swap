@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 18:01:15 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/02/03 18:06:30 by mvavasso         ###   ########.fr       */
+/*   Created: 2023/02/03 17:51:17 by mvavasso          #+#    #+#             */
+/*   Updated: 2023/02/03 17:51:26 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../libft.h"
 
-void	pa(t_stack *a, t_stack *b)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (b->size)
+	while (lst)
 	{
-		ft_putendl_fd("pa", 1);
-		stack_push(a, stack_pop(b));
-	}
-}
-
-void	pb(t_stack *a, t_stack *b)
-{
-	if (a->size)
-	{
-		ft_putendl_fd("pb", 1);
-		stack_push(b, stack_pop(a));
+		f(lst->content);
+		lst = lst->next;
 	}
 }

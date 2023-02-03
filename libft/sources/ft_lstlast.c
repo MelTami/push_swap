@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 17:08:58 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/01/26 17:09:01 by mvavasso         ###   ########.fr       */
+/*   Created: 2023/02/03 17:51:45 by mvavasso          #+#    #+#             */
+/*   Updated: 2023/02/03 17:56:48 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../libft.h"
 
-void	ft_error(void)
+t_list	*ft_lstlast(t_list *lst)
 {
-	ft_putstr_fd("Error\n", 1);
-	exit(EXIT_FAILURE);
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

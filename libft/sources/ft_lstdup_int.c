@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lstdup_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 18:01:15 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/02/03 18:06:30 by mvavasso         ###   ########.fr       */
+/*   Created: 2023/02/03 17:51:00 by mvavasso          #+#    #+#             */
+/*   Updated: 2023/02/03 17:51:05 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../libft.h"
 
-void	pa(t_stack *a, t_stack *b)
+t_list	*ft_lstdup_int(t_list *list)
 {
-	if (b->size)
-	{
-		ft_putendl_fd("pa", 1);
-		stack_push(a, stack_pop(b));
-	}
-}
+	t_list	*new;
+	t_list	*temp;
+	int		*content;
 
-void	pb(t_stack *a, t_stack *b)
-{
-	if (a->size)
+	new = 0;
+	while (list)
 	{
-		ft_putendl_fd("pb", 1);
-		stack_push(b, stack_pop(a));
+		content = (int *)malloc(sizeof(*content));
+		if (!content)
+			return (0);
+		*content = *(int *)list->content;
+		temp = ft_lstnew(content);
+		if (!temp)
+			return (0);
+		ft_lstadd_back(&new, temp);
+		list = list->next;
 	}
+	return (new);
 }

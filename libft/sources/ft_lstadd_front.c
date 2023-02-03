@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check.c                                         :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 18:01:55 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/02/01 14:12:56 by mvavasso         ###   ########.fr       */
+/*   Created: 2023/02/03 17:46:56 by mvavasso          #+#    #+#             */
+/*   Updated: 2023/02/03 17:47:17 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../libft.h"
 
-void	ft_check(char *argv)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int	i;
-
-	i = 0;
-	if (argv[0] == '-')
-		i++;
-	while (argv[i])
+	if (!new)
+		return ;
+	if (new)
 	{
-		if (!ft_isdigit(argv[i]))
-			ft_error();
-		i++;
-	}			
+		new->next = *lst;
+		*lst = new;
+	}
 }

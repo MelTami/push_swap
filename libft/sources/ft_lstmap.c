@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvavasso <mvavasso@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 18:01:15 by mvavasso          #+#    #+#             */
-/*   Updated: 2023/02/03 18:06:30 by mvavasso         ###   ########.fr       */
+/*   Created: 2023/02/03 17:52:01 by mvavasso          #+#    #+#             */
+/*   Updated: 2023/02/03 17:52:25 by mvavasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../libft.h"
 
-void	pa(t_stack *a, t_stack *b)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *))
 {
-	if (b->size)
-	{
-		ft_putendl_fd("pa", 1);
-		stack_push(a, stack_pop(b));
-	}
-}
+	t_list	*new;
+	t_list	*first;
 
-void	pb(t_stack *a, t_stack *b)
-{
-	if (a->size)
+	if (!lst)
+		return (NULL);
+	new = ft_lstnew(f(lst->content));
+	if (!new)
+		return (NULL);
+	first = new;
+	while (lst->next)
 	{
-		ft_putendl_fd("pb", 1);
-		stack_push(b, stack_pop(a));
+		lst = lst->next;
+		new->next = ft_lstnew(f(lst->content));
+		if (!new->next)
+		{
+			ft_lstclear(&first, del);
+			break ;
+		}
+		new = new->next;
 	}
+	return (first);
 }
